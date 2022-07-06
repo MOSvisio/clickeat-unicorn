@@ -1,0 +1,79 @@
+@import "../shared/css/variables.scss";
+
+main {
+    background-color: $top-color;
+    width: 80vh;
+    height: 70vh; 
+    margin: auto;
+    border-radius: 25px;
+    padding: 15px;
+    position: relative;
+
+    button {
+        width: 254px;
+        height: 62px;
+        border-radius: 15px;
+        color: black;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        box-shadow: inset -4px -4px 4px rgba(0, 0, 0, 0.25);
+
+        
+        &:hover {
+            cursor: pointer;
+        }
+
+        &:active {
+            box-shadow: inset 4px 4px 4px rgba(0, 0, 0, 0.25);
+            cursor: pointer;
+        }
+    }
+
+    img {
+        $size : 154px;
+        max-width: $size;
+        max-height: $size;
+        margin-top: -$size / 2 - 15px;
+        border-radius: 50%;
+        border: 2px solid white;
+        background-color: $top-color;
+    }
+
+    nav {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        button{
+
+            &:first-child {
+                background-color: #FF9ECE;
+            }
+
+            &:last-child {
+                background-color: #FFD033;
+            }
+        }
+    }
+
+}
+
+
+
+#btn-playground {
+    margin-top: 10px;
+    width: 20%;height: 10%;
+}
+
+footer {
+    width: 100%;
+    text-align: center;
+    color: white;
+    padding-top: 10px;
+
+
+    a {
+        color: white;
+    }
+}

@@ -1,0 +1,86 @@
+
+<div class="table-container">
+    <table>
+        <thead>
+            <tr>
+                <th>Color</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Gender</th>
+                <th>Mate</th>
+                <th align="right"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let unicorn of unicornsMate; trackBy: trackByUnicornMate">
+                <td>
+                    <app-unicorn-color [color]="unicorn.unicorn.color"></app-unicorn-color>
+                </td>
+                <td>
+                    {{unicorn.unicorn.name}}
+                </td>
+                <td>
+                    {{unicorn.unicorn.age}}
+                </td>
+                <td>
+                    {{unicorn.unicorn.gender}}
+                </td>
+                <td *ngIf="!unicorn.unicorn.mate && unicorn.unicorn.gender != 'other'; else removeMate"> 
+                    <button class="enable-btn" (click)="addMate(unicorn.unicorn);">Add a mate</button>
+                </td>
+                <ng-template #removeMate>
+                    <td *ngIf="unicorn.unicorn.gender != 'other'; else otherMate"> 
+                        {{unicorn.mate.name}}<button class="disable-btn" (click)="deleteMate(unicorn.unicorn)">X</button>
+                    </td>
+                    <ng-template #otherMate>
+                        <td> 
+                            -
+                        </td>
+                    </ng-template>
+                </ng-template>
+                <td align="right">
+                    <button (click)="openModal(unicorn.unicorn)">Edit</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<app-modal id="unicorn-mate">
+    <div>
+        <div>
+            <label for="mate">Select a mate for : {{unicornSelectedMating.name}} </label>
+            <!--<input type="text" name="gender" id="gender" [(ngModel)]="unicorn.gender">-->
+            <select name="mate" id="mate" [(ngModel)]="unicornSelectedMateMatch" >
+                <option [ngValue]="null" disabled selected>Select your option</option>
+                <option [ngValue]="unicorn" *ngFor="let unicorn of unicorns | unicornGenderPipe:unicornSelectedMating; trackBy: trackByUnicorn">{{unicorn.name}}</option>
+            </select>
+        </div>
+
+        <div class="btn-container">
+            <button class="cancel-btn" (click)="closeModal('unicorn-mate')">
+                Cancel
+            </button>
+
+            <button (click)="createMate()">
+                Create
+            </button>
+        </div>
+    </div>
+</app-modal>
+
+<app-modal id="unicorn-mate-delete">
+    <div>
+        <h3>Are you sure ?</h3>
+
+        <div class="btn-container">
+            <button class="cancel-btn" (click)="closeModal('unicorn-mate-delete')">
+                Cancel
+            </button>
+
+            <button (click)="removeMate()">
+                Delete mate
+            </button>
+        </div>
+    </div>
+</app-modal>

@@ -1,0 +1,41 @@
+<main>
+
+    <nav>
+        <button (click)="openModalCreateUnicorn()">Create a unicorn</button>
+        <img src="../../assets/Images/unicorn.png" alt="unicorn Illustration" srcset="">
+        <button (click)="openModalReproduce()">Reproduce</button>
+    </nav>
+
+    <div class="list-container">
+
+        <app-unicorn-list></app-unicorn-list>
+    </div>
+
+    <button id="btn-playground" (click)="openModal('unicorn-playground')">Playground</button>
+</main>
+  
+<footer>
+    <p>Illustration By : <a  href="https://www.flaticon.com/free-icons/unicorn" rel="noopener noreferrer" target="_blank" >flaticon.com</a></p>
+</footer>
+
+
+<app-modal id="unicorn-detail">
+    <div>
+        <app-unicorn-form [unicorn]="unicornSelected">
+            
+        </app-unicorn-form>
+
+    </div>
+</app-modal>
+
+<app-modal id="unicorn-reproduce">
+    <div>
+        <app-unicorn-form-reproduction></app-unicorn-form-reproduction>
+    </div>
+</app-modal>
+
+<app-modal id="unicorn-playground">
+    <div>
+        <app-playground></app-playground>
+    </div>
+</app-modal>

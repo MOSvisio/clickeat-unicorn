@@ -1,0 +1,72 @@
+form {
+
+    display: flex;
+    flex-direction: row;
+    column-gap: 30px;
+    app-unicorn-color { 
+        display: block;
+        width: 240px;
+        height: 240px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+        &:not(:first-child) {
+            margin-top: 10px;
+        }
+    }
+
+    input, select {
+        height: 40px;
+        width: 150px;
+        border-radius: 10px;
+    }
+
+    .color-picker {
+        border-radius: 0px;
+        width: 150px;
+        height: 92px;
+        border: none;
+        border-color: transparent;
+        padding: 0;
+        box-shadow: none;
+        margin: 0;
+        appearance: none;
+        outline: none;
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    ::-moz-color-swatch{ 
+        outline: none;
+    }
+
+    .form-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        button {
+            border-radius: 10px;
+            height: 62px;
+            background-color: #5FC788;
+            border: none;
+            color: white;
+            box-shadow: inset -4px -4px 4px rgba(0, 0, 0, 0.25);
+            font-style: normal;
+            font-weight: 600;
+            font-size: 16px;
+            &:hover {
+                cursor: pointer;
+            }
+
+            &:active {
+                box-shadow: inset 4px 4px 4px rgba(0, 0, 0, 0.25);
+                cursor: pointer;
+            }
+        }
+    }
+}

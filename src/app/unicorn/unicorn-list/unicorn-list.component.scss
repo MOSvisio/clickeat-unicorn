@@ -1,0 +1,119 @@
+@import "../../shared/css/variables.scss";
+
+.table-container {
+    margin: 0;
+    padding: 0;
+    margin-top: 5vh;
+    width: 100%;
+    height: 100%;
+    max-height: 50vh;
+    border-radius: 15px;
+    overflow-y: auto;
+    border: 2px solid #FF9ECE;
+    box-sizing: border-box;
+    position: relative;
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        color: white;
+        height: 100%;
+        border-radius: 15px;
+        td, th {
+            line-height: 50px;
+            vertical-align: center;
+            &:first-child {
+                text-align: center;
+                width: 50px;
+                height: 100%;
+            }
+
+            &:nth-child(2) {
+                padding-left: 10px;
+            }
+
+            &:last-child {
+                padding-right: 20px;
+            }
+        }
+
+        td {
+            vertical-align: middle;
+        }
+
+        thead {
+            text-align: left;
+            tr {
+                border-bottom: 2px solid #FF9ECE;
+            }
+        }
+
+        tbody {
+            tr {
+                &:not(:last-child) {
+                    border-bottom: 2px solid #FF9ECE;
+                }
+
+                &:last-child {
+                    border-radius: 15px;
+                }
+
+                button {
+                    width: 127px;
+                    height: 31px;
+                    border: none;
+                    border-radius: 10px;
+                    cursor: pointer;
+                    
+                    &:hover {
+                        opacity: 0.8;
+                    }
+                
+                }
+
+                .enable-btn {
+                    background-color: #A8E7FF;
+                }
+                .disable-btn {
+                    background-color: transparent;
+                    border: 2px solid #A8E7FF;
+                    color: white;
+                    width: 31px;
+                    margin-left: 10px;
+                    &:hover {
+                        background-color: #A8E7FF;
+                        color: $top-color;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+background: none;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+background: #FF9ECE;
+border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+background: #FF9ECE;
+}
+
+input, select {
+    margin-top: 10px;
+    height: 40px;
+    width: 150px;
+    border-radius: 10px;
+}

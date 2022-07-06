@@ -1,0 +1,5 @@
+<div #playgroundContainer id="playgroundContainer" class="playground-container" (mousemove)="mouseMove($event)" (dragover)="handleDragOver($event)">
+    <div *ngFor="let unicorn of unicorns; trackBy: trackByUnicorn" [ngStyle]="{'background-color': unicorn.color}" class="object idle" draggable="true" (dragstart)="handleDragStart($event)" (dragend)="handleDragEnd($event)" ></div>
+
+    
+</div>

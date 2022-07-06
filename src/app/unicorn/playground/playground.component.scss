@@ -1,0 +1,31 @@
+:host {
+    display: inline-block;
+}
+ 
+#playgroundContainer {
+    display: inline-block;
+    width: 800px; 
+    height: 500px;
+    position: relative;
+}
+
+
+.object {
+    width: 50px;
+    height: 50px;
+    background-image: url("../../../assets/Images/unicorn-uncolored.png");
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    transition: left 3s linear, top 3s linear, transform 1s;
+    cursor: move;
+    top: 100px;
+    left: 100px; 
+  }
+
+  .idle {
+  }
+  
+  .moving {
+    transition: none;
+  }

@@ -1,0 +1,20 @@
+[
+    {
+        "name": "lucas",
+        "age": "2",
+        "color": "lightgrey",
+        "gender": "male"
+    },
+    {
+        "name": "Petit tonnerre",
+        "age": "2",
+        "color": "red",
+        "gender": "male"
+    },
+    {
+        "name": "lucas",
+        "age": "2",
+        "color": "lightgrey",
+        "gender": "male"
+    }
+]

@@ -1,0 +1,63 @@
+<div class="reproduction-container">
+    <div class="select-container">
+        <label for="mates">Mates </label>
+        <!--<input type="text" name="gender" id="gender" [(ngModel)]="unicorn.gender">-->
+        <select name="mates" id="mates" [(ngModel)]="selectedMate" (change)="mateChanged()">
+            <option *ngFor="let mate of mates" [ngValue]="mate">{{ mate.female.name }} X {{ mate.male.name}}</option>
+        </select>
+    </div>
+
+    <div class="parent-container" *ngIf="selectedMate != null">
+        <app-unicorn-color [bgColor]="'modal'" [color]="selectedMate.female.color"></app-unicorn-color>
+        <app-unicorn-color [bgColor]="'modal'" [color]="selectedMate.male.color"></app-unicorn-color>
+    </div>
+
+    <div class="btn-container" *ngIf="selectedMate != null">
+        <button (click)="openModal('unicorn-child')">
+            Reproduce
+        </button>
+    </div>
+
+    <div class="child-container" *ngIf="selectedMate != null">
+        <span>Result</span>
+        <app-unicorn-color [bgColor]="'modal'" [color]="colorGenerate"></app-unicorn-color>
+    </div>
+    <div class="range-container" *ngIf="selectedMate != null">
+        <input type="range" id="color" name="color" [(ngModel)]="sliderColor" (input)="mateChanged()"
+                min="0" max="1" step="0.1">
+        <span>Genetics</span>
+    </div>
+</div>
+
+<app-modal id="unicorn-child">
+    <div class="form-container">
+        <div>
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" [(ngModel)]="child.name">
+        </div>
+        <div>
+            <label for="age">Age</label>
+            <input type="number" name="age" id="age" [(ngModel)]="child.age">
+        </div>
+        <div>
+            <label for="gender">Gender </label>
+            <!--<input type="text" name="gender" id="gender" [(ngModel)]="unicorn.gender">-->
+            <select name="gender" id="gender" [(ngModel)]="child.gender">
+                <option [value]="null">Choose a gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+
+        <div class="btn-container">
+            <button class="cancel-btn" (click)="closeModal('unicorn-child')">
+                Cancel
+            </button>
+
+            <button (click)="createChild()">
+                Create child
+            </button>
+        </div>
+    </div>
+</app-modal>
