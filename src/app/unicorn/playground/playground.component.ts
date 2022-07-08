@@ -144,4 +144,21 @@ export class PlaygroundComponent implements OnInit, AfterViewInit {
     return item.name + item.gender + item.color;
   }
 
+  showInfo(event: any) {
+    let child = event.target.childNodes[1] as HTMLElement;
+    child.style.display = "block";
+  }
+
+  resetUnicorns(event: any) {
+    if (!event.target.className.includes("object")) {
+      let items = Array.from(document.getElementsByClassName('idle') as HTMLCollectionOf<HTMLElement>);
+      
+      items.forEach((testElement) => {
+        let child = testElement.childNodes[1] as HTMLElement;
+        child.style.display = "none";
+      });
+
+    }
+  }
+
 }

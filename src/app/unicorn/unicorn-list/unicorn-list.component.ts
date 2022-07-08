@@ -56,7 +56,6 @@ export class UnicornListComponent implements OnInit {
     return item.unicorn.name + item.unicorn.id;
   }
   openModal(unicorn: Unicorn) {
-    console.log(unicorn)
     this.eventService.emitUnicornOpened(unicorn);
   }
   

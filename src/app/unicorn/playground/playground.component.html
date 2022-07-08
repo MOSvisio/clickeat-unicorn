@@ -1,6 +1,11 @@
-<div #playgroundContainer id="playgroundContainer" class="playground-container" (mousemove)="mouseMove($event)" (dragover)="handleDragOver($event)">
-    <div *ngFor="let unicorn of unicorns; trackBy: trackByUnicorn" [attr.data-content]="unicorn.name" class="object idle" draggable="true" (dragstart)="handleDragStart($event)" (dragend)="handleDragEnd($event)" >
+<div #playgroundContainer (click)="resetUnicorns($event)" id="playgroundContainer" class="playground-container" (mousemove)="mouseMove($event)" (dragover)="handleDragOver($event)">
+    <div (click)="showInfo($event)" *ngFor="let unicorn of unicorns; trackBy: trackByUnicorn" [attr.data-content]="unicorn.name" class="object idle" draggable="true" (dragstart)="handleDragStart($event)" (dragend)="handleDragEnd($event)" >
         <img [ngStyle]="{'background-color': unicorn.color}" src="../../../assets/Images/unicorn-uncolored.png" alt="">
+        <div class="info">
+            <p>{{ unicorn.name }}</p>
+            <p>{{ unicorn.age }}</p>
+            <p>{{ unicorn.gender }}</p>
+        </div>
     </div>
 
     

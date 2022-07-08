@@ -7,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class UnicornColorComponent implements OnInit {
 
-  @Input() color = "white";
+  @Input() color = "#FFFFFF";
   @Input() bgColor = "darker";
 
   image = "";

@@ -1,3 +1,6 @@
+@import "../../shared/css/variables.scss";
+
+
 app-modal {
     /* modals are hidden by default */
     display: none;
@@ -23,11 +26,11 @@ app-modal {
             padding: 0;
             margin: 0;
             margin-top: -20px;
-            margin-right: -10px;
+            margin-left: calc(100% - 20px);
             font-style: normal;
             font-weight: 600;
             font-size: 40px;
-            float: right;
+            display: flex;
             height: 40px;
             line-height: 40px;
             p {
@@ -45,7 +48,7 @@ app-modal {
 
         .modal-body {
             padding: 20px;
-            background: #212121;
+            background: $background-color;
             border: 2px solid #A8E7FF;
             border-radius: 15px;
             color: white;
