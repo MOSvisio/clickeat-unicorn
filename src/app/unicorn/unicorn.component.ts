@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { Unicorn } from '../shared/classes/unicorn';
 import { EventService } from '../shared/services/event.service';
 import { ModalService } from '../shared/services/modal.service';
@@ -16,17 +17,20 @@ export class UnicornComponent implements OnInit {
   public unicorns: Unicorn[] = [];
 
   public unicornSelected: Unicorn = new Unicorn({color: "white"});
-  private unicornOpenedSub: any;
+  private unicornOpenedSub: Subscription|undefined;
 
   ngOnInit(): void {
     this.unicornOpenedSub = this.eventService.unicornOpened.subscribe(unicorn => {
-      this.unicornSelected = unicorn;
-      this.openModal("unicorn-detail");
+      this.openModalCreateUnicorn(unicorn);
     })
   }
 
-  openModalCreateUnicorn() {
-    this.unicornSelected = new Unicorn({color: "white"});
+  openModalCreateUnicorn(unicorn? : Unicorn) {
+    if (unicorn) {
+      this.unicornSelected = new Unicorn(unicorn);
+    } else {
+      this.unicornSelected = new Unicorn({color: "#FFFFFF"});
+    }
     this.openModal("unicorn-detail");
   }
 
@@ -38,5 +42,5 @@ export class UnicornComponent implements OnInit {
     this.unicorns = this.storageService.getUnicorns();
     this.modalService.open(id);
   }
-
+  
 }

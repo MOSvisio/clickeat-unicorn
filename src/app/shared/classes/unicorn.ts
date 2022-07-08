@@ -12,7 +12,7 @@ export class Unicorn {
             data = [];
         }
 
-        this.id = data.id ?? null;
+        this.id = data.id ?? -1;
         this.name = data.name ?? null;
         this.color = data.color ?? null;
         this.gender = data.gender ?? null;

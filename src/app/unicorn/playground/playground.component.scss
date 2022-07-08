@@ -13,14 +13,32 @@
 .object {
     width: 50px;
     height: 50px;
-    background-image: url("../../../assets/Images/unicorn-uncolored.png");
     background-position: center;
     background-size: cover;
     position: absolute;
-    transition: left 3s linear, top 3s linear, transform 1s;
+    transition: left 3s, top 3s;
     cursor: move;
     top: 100px;
     left: 100px; 
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transition: transform 0.3s;
+      user-select: none;
+      pointer-events: none;
+    }
+  }
+
+  .object::after {
+    content: attr(data-content);
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: -10px;
+    left: 0;
+    transform: scale(1);
   }
 
   .idle {

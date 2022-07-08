@@ -43,7 +43,7 @@ export class PlaygroundComponent implements OnInit, AfterViewInit {
       if (id == "unicorn-playground") {
         this.width = this.playground?.nativeElement.clientWidth;
         this.height = this.playground?.nativeElement.clientHeight;
-        this.subInterval = interval(3000).subscribe(() => this.moveObject())
+        this.subInterval = interval(6000).subscribe(() => this.moveObject())
     
         let items = Array.from(document.getElementsByClassName('idle') as HTMLCollectionOf<HTMLElement>);
     
@@ -69,13 +69,17 @@ export class PlaygroundComponent implements OnInit, AfterViewInit {
     items.forEach((testElement) => {
       let topNum = parseInt(testElement.style.left.replace("px", ""));
       let pos = this.getNextPosition(testElement.style.top, testElement.style.left, 50);
-      if (pos.left - topNum > 0) {
-        testElement.style.transform= "scaleX(-1)";
-      } else {
-        testElement.style.transform= "scaleX(1)";
+      let child = testElement.childNodes[0] as HTMLElement;
+      if (child != undefined) {
+        if (pos.left - topNum > 0) {
+          child.style.transform= "scaleX(-1)";
+        } else {
+          child.style.transform= "scaleX(1)";
+        }
       }
 
-      testElement.style.transition = "left 4s linear, top 4s linear, transform 1s";
+      
+      testElement.style.transition = "left 3s, top 3s, transform 0.3s";
       testElement.style.top = pos.top + "px"
       testElement.style.left = pos.left + "px"
       

@@ -2,8 +2,9 @@
 
 main {
     background-color: $top-color;
-    width: 80vh;
-    height: 70vh; 
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 100%;
     margin: auto;
     border-radius: 25px;
     padding: 15px;
@@ -41,18 +42,54 @@ main {
     }
 
     nav {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
 
-        button{
+        @media screen and (min-width: 768px) {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+    
+            button{
+    
+                &:first-child {
+                    background-color: #FF9ECE;
+                }
+    
+                &:last-child {
+                    background-color: #FFD033;
+                }
+            }
+        }
 
-            &:first-child {
-                background-color: #FF9ECE;
+        @media screen and (max-width: 768px) {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            grid-template-rows: 3fr repeat(2, 1fr);
+            place-items: center;
+    
+            grid-template-areas: 
+                "header"
+                "btn-1"
+                "btn-2";
+            
+            button{
+    
+                &:first-child {
+                    grid-area: btn-1;
+                    width: 100%;
+                    background-color: #FF9ECE;
+                }
+    
+
+                &:last-child {
+                    grid-area: btn-2;
+                    width: 100%;
+                    background-color: #FFD033;
+                }
             }
 
-            &:last-child {
-                background-color: #FFD033;
+            img {
+                margin-top: 0;
+                grid-area: header;
             }
         }
     }
@@ -63,7 +100,10 @@ main {
 
 #btn-playground {
     margin-top: 10px;
-    width: 20%;height: 10%;
+    @media screen and (max-width: 768px) {
+        width: 100%;
+        display: none;
+    }
 }
 
 footer {

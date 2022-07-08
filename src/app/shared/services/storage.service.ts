@@ -24,7 +24,7 @@ export class StorageService {
   saveUnicorns(data: Unicorn[]) {
     let id = 0;
     for (let i=0; i<data.length; i++) {
-      if (!data[i].id) {
+      if (data[i].id < 0) {
         id++
         data[i].id = id;
       } else {

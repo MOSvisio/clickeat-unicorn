@@ -36,7 +36,6 @@ export class UnicornListComponent implements OnInit {
     this.unicornCreatedSub = this.eventService.unicornCreated.subscribe(unicorn => {
       this.unicorns.push(unicorn);
       this.generateUnicornMate();
-      console.log(this.unicorns)
       this.storageService.saveUnicorns(this.unicorns);
     })
   }
@@ -57,6 +56,7 @@ export class UnicornListComponent implements OnInit {
     return item.unicorn.name + item.unicorn.id;
   }
   openModal(unicorn: Unicorn) {
+    console.log(unicorn)
     this.eventService.emitUnicornOpened(unicorn);
   }
   

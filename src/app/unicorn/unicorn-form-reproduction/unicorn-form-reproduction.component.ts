@@ -54,7 +54,6 @@ export class UnicornFormReproductionComponent implements OnInit {
     })
 
     this.mates = tmpMates;
-    console.log(this.mates);
   }
 
   mateChanged() {
@@ -73,6 +72,8 @@ export class UnicornFormReproductionComponent implements OnInit {
 
   createChild() {
     this.child.color = this.colorGenerate;
+    this.child.name = (this.selectedMate?.female.name ?? "") + (this.selectedMate?.male.name ?? "");
+    this.child.age = 1;
     this.eventService.emitUnicornCreated(this.child);
     this.child = new Unicorn();
     this.modalService.close("unicorn-child");
