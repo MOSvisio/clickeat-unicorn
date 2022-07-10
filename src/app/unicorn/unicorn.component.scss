@@ -35,7 +35,7 @@ main {
         $size : 154px;
         max-width: $size;
         max-height: $size;
-        margin-top: -$size / 2 - 15px;
+        margin-top: -$size + 50px;
         border-radius: 50%;
         border: 2px solid white;
         background-color: $top-color;

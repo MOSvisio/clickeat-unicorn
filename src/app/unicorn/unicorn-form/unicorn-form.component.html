@@ -25,7 +25,7 @@
     <div class="form-container">
         <div>
             <label for="color">Color </label>
-            <input class="color-picker" type="color" id="color" name="color" [(ngModel)]="unicorn.color" >
+            <input class="color-picker" type="color" id="color" name="color" [(ngModel)]="unicorn.color" [disabled]="unicorn.id > 0">
 
         </div>
 

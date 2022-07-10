@@ -2,9 +2,9 @@
     <div (click)="showInfo($event)" *ngFor="let unicorn of unicorns; trackBy: trackByUnicorn" [attr.data-content]="unicorn.name" class="object idle" draggable="true" (dragstart)="handleDragStart($event)" (dragend)="handleDragEnd($event)" >
         <img [ngStyle]="{'background-color': unicorn.color}" src="../../../assets/Images/unicorn-uncolored.png" alt="">
         <div class="info">
-            <p>{{ unicorn.name }}</p>
-            <p>{{ unicorn.age }}</p>
-            <p>{{ unicorn.gender }}</p>
+            <p>Name: {{ unicorn.name }}</p>
+            <p>Age: {{ unicorn.age }}</p>
+            <p>Gender: {{ unicorn.gender }}</p>
         </div>
     </div>
 

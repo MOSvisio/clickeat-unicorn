@@ -64,7 +64,6 @@
                     border: none;
                     border-radius: 10px;
                     cursor: pointer;
-                    
                     &:hover {
                         opacity: 0.8;
                     }
@@ -116,4 +115,8 @@ input, select {
     height: 40px;
     width: 150px;
     border-radius: 10px;
+}
+
+#mate {
+    display: block;
 }
